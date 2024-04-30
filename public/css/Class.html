@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://localhost:3000/monday -->
+<html lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Class</title>
+
+  <!-- meta tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- web logo -->
+  <link rel="icon" type="image/png" href="http://localhost:3000/images/class_logo.png">
+  <!-- bootstrap -->
+  <link href="./Class_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <!-- css link -->
+  <link rel="stylesheet" href="./Class_files/styles.css">
+
+  </head><body style="visibility: visible;"><nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a href="http://localhost:3000/home" class="top" style="text-decoration: none; padding-right: 12px;">
+        <h3><img src="./Class_files/class.png" style="width: 43px; height: 43px; color: white; float: left; padding-right: 5px; padding-top: 2.5px; padding-bottom: 2.5px">CLASS<sup>BETA</sup></h3>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="width: 20px;"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="http://localhost:3000/attendance">ATTENDANCE</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://localhost:3000/monday#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              TIMETABLE
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="http://localhost:3000/timeTable">Today</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="http://localhost:3000/weeklyTimeTable">Weekly</a></li>
+              <!-- <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/monday">Monday</a></li>
+              <li><a class="dropdown-item" href="/tuesday">Tuesday</a></li>
+              <li><a class="dropdown-item" href="/wednesday">Wednesday</a></li>
+              <li><a class="dropdown-item" href="/thursday">Thursday</a></li>
+              <li><a class="dropdown-item" href="/friday">Friday</a></li> -->
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/editClass">EDIT CLASS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/tasks">TASKS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/message">MESSAGE</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://localhost:3000/monday#" role="button" data-bs-toggle="dropdown" aria-expanded="false">PROFILE</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="http://localhost:3000/profile" style="white-space:nowrap;">Profile <img src="./Class_files/user.png" style="width: 25px; position: relative; bottom: 2px;"></a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="http://localhost:3000/">Logout</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/about">ABOUT</a>
+          </li>
+        </ul>
+      </div>
+      <div style="display: flex; float: right">
+        <img src="./Class_files/sun.png" id="icon">
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid-2" style="padding-top: 70px;">
+  </div>
+
+  <nav style="margin-top: 5px;">
+    <form action="http://localhost:3000/timeTable" method="post">
+      <div class="nav navbar-timetable nav-tabs" id="nav-tab" role="tablist">
+
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="submit" role="tab" aria-controls="nav-profile" aria-selected="false" name="day" value="monday">Monday</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="submit" role="tab" aria-controls="nav-profile" aria-selected="false" name="day" value="tuesday">Tuesday</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="submit" role="tab" aria-controls="nav-profile" aria-selected="false" name="day" value="wednesday">Wednesday</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="submit" role="tab" aria-controls="nav-profile" aria-selected="false" name="day" value="thursday">Thursday</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="submit" role="tab" aria-controls="nav-profile" aria-selected="false" name="day" value="friday">Friday</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="submit" role="tab" aria-controls="nav-profile" aria-selected="false" name="day" value="saturday">Saturday</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="submit" role="tab" aria-controls="nav-profile" aria-selected="false" name="day" value="sunday">Sunday</button>
+
+      </div>
+    </form>
+  </nav>
+
+
+<script>
+  var icon = document.getElementById("icon");
+  icon.onclick = function() {
+    document.body.classList.toggle("dark-theme");
+    if (document.body.classList.contains("dark-theme")) {
+      icon.src = "images/moon.png";
+    } else {
+      icon.src = "images/sun.png";
+    }
+  }
+</script>
+
+<!--Start of Tawk.to Script-->
+<!-- <script type="text/javascript">
+  var Tawk_API = Tawk_API || {},
+    Tawk_LoadStart = new Date();
+  (function() {
+    var s1 = document.createElement("script"),
+      s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/63e23209474251287911f157/1golp6toi';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script> -->
+<!--End of Tawk.to Script-->
+
+
+
+  <style>
+	#loader {
+		border: 12px solid #f3f3f3;
+		border-radius: 50%;
+		border-top: 12px solid #3836b1;
+		width: 70px;
+		height: 70px;
+		animation: spin 1s linear infinite;
+	}
+	@keyframes spin {
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+	.center {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+</style>
+
+<div id="loader" class="center" style="visibility: visible; display: none;"></div>
+
+<script>
+	document.onreadystatechange = function() {
+		if (document.readyState !== "complete") {
+			document.querySelector(
+			"body").style.visibility = "hidden";
+			document.querySelector(
+			"#loader").style.visibility = "visible";
+		} else {
+			document.querySelector(
+			"#loader").style.display = "none";
+			document.querySelector(
+			"body").style.visibility = "visible";
+		}
+	};
+</script>
+
+
+<div class="head">
+  <h4>Monday</h4>
+</div>
+
+<div id="liveAlertPlaceholder"></div>
+
+
+
+  
+    
+      
+    
+      
+        
+          
+        <div class="period" style="display: flex;">
+          <div style="float: left; width: 91%;">
+            <h5 style="position: relative; top: 13px;">CN</h5>
+            <p class="period-para">08:30AM - 09:30AM</p>
+            <form action="http://localhost:3000/monday" style="position: relative; bottom: 5px;" method="post">
+              <button type="submit" class="btn btn-outline-success" id="liveAlertBtn1" style="font-weight: 600;" name="period" value="p-CN-08:30AM-09:30AM">Present</button>
+              <button type="submit" class="btn btn-outline-danger" id="liveAlertBtn2" style="font-weight: 600; position: relative; left: 5px;" name="period" value="a-CN-08:30AM-09:30AM">Absent</button>
+              <p><span id="display_message"></span></p>
+            </form>
+          </div>
+          <div style="float: right; position: relative; top: 4px;">
+            <p style="font-size: 0.9rem; position: relative; top: 7px; margin: 0;">Period</p>   
+            <button type="submit" class="add btn btn-light" style="font-size: 1.4rem; font-weight: 600; border-radius: 50%; height: 37px; width: 37px; position: relative; left: 1.4px;" name="periodNumber" title="Period"><p style="position: relative; bottom: 6px; right: 0.7px;">1</p></button>
+          </div>
+        </div>
+
+          
+          
+          
+          
+          
+          
+    
+      
+  
+    
+      
+        
+          
+          
+        <div class="period" style="display: flex;">
+          <div style="float: left; width: 91%;">
+            <h5 style="position: relative; top: 13px;">OOPS</h5>
+            <p class="period-para">09:30AM - 10:30AM</p>
+            <form action="http://localhost:3000/monday" style="position: relative; bottom: 5px;" method="post">
+              <button type="submit" class="btn btn-outline-success" id="liveAlertBtn3" style="font-weight: 600;" name="period" value="p-OOPS-09:30AM-10:30AM">Present</button>
+              <button type="submit" class="btn btn-outline-danger" id="liveAlertBtn4" style="font-weight: 600; position: relative; left: 5px;" name="period" value="a-OOPS-09:30AM-10:30AM">Absent</button>
+              <p><span id="display_message"></span></p>
+            </form>
+          </div>
+          <div style="float: right; position: relative; top: 4px;">
+            <p style="font-size: 0.9rem; position: relative; top: 7px; margin: 0;">Period</p>   
+            <button type="submit" class="add btn btn-light" style="font-size: 1.4rem; font-weight: 600; border-radius: 50%; height: 37px; width: 37px; position: relative; left: 1.4px;" name="periodNumber" title="Period"><p style="position: relative; bottom: 6px; right: 0.7px;">2</p></button>
+          </div>
+        </div>
+
+          
+          
+          
+          
+          
+    
+      
+    
+      
+        
+          
+          
+        <div class="period" style="display: flex;">
+          <div style="float: left; width: 91%;">
+            <h5 style="position: relative; top: 13px;">OOPS</h5>
+            <p class="period-para">09:30AM - 10:30AM</p>
+            <form action="http://localhost:3000/monday" style="position: relative; bottom: 5px;" method="post">
+              <button type="submit" class="btn btn-outline-success" id="liveAlertBtn3" style="font-weight: 600;" name="period" value="p-OOPS-09:30AM-10:30AM">Present</button>
+              <button type="submit" class="btn btn-outline-danger" id="liveAlertBtn4" style="font-weight: 600; position: relative; left: 5px;" name="period" value="a-OOPS-09:30AM-10:30AM">Absent</button>
+              <p><span id="display_message"></span></p>
+            </form>
+          </div>
+          <div style="float: right; position: relative; top: 4px;">
+            <p style="font-size: 0.9rem; position: relative; top: 7px; margin: 0;">Period</p>   
+            <button type="submit" class="add btn btn-light" style="font-size: 1.4rem; font-weight: 600; border-radius: 50%; height: 37px; width: 37px; position: relative; left: 1.4px;" name="periodNumber" title="Period"><p style="position: relative; bottom: 6px; right: 0.7px;">2</p></button>
+          </div>
+        </div>
+
+          
+          
+          
+          
+          
+  
+    
+      
+    
+      
+    
+      
+  
+    
+      
+    
+      
+    
+      
+  
+    
+      
+    
+      
+    
+      
+  
+    
+      
+    
+      
+    
+      
+  
+    
+      
+    
+      
+    
+      
+  
+    
+      
+    
+      
+    
+      
+  
+    
+      
+    
+      
+    
+      
+  
+    
+      
+    
+      
+    
+      
+
+
+<script>
+  const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+  const appendAlert = (message, type) => {
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = [
+    `<figure class="notification_${type}">`,
+      `<div class="notification_body_${type}">`,
+        `<img src="images/${type}.png" title="Success" alt="Success" class="notification_icon_${type}"/>`,
+        `${message}`, 
+      '</div>',
+      `<div class="notification_progress_${type}"></div>`,
+    '</figure>',
+  ].join('')
+  alertPlaceholder.append(wrapper)
+}
+
+const alertTrigger1 = document.getElementById('liveAlertBtn1');
+const alertTrigger2 = document.getElementById('liveAlertBtn2');
+const alertTrigger3 = document.getElementById('liveAlertBtn3');
+const alertTrigger4 = document.getElementById('liveAlertBtn4');
+const alertTrigger5 = document.getElementById('liveAlertBtn5');
+const alertTrigger6 = document.getElementById('liveAlertBtn6');
+const alertTrigger7 = document.getElementById('liveAlertBtn7');
+const alertTrigger8 = document.getElementById('liveAlertBtn8');
+const alertTrigger9 = document.getElementById('liveAlertBtn9');
+const alertTrigger10 = document.getElementById('liveAlertBtn10');
+const alertTrigger11 = document.getElementById('liveAlertBtn11');
+const alertTrigger12 = document.getElementById('liveAlertBtn12');
+const alertTrigger13 = document.getElementById('liveAlertBtn13');
+const alertTrigger14 = document.getElementById('liveAlertBtn14');
+const alertTrigger15 = document.getElementById('liveAlertBtn15');
+const alertTrigger16 = document.getElementById('liveAlertBtn16');
+
+if (alertTrigger1) {
+  alertTrigger1.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger2) {
+  alertTrigger2.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}if (alertTrigger3) {
+  alertTrigger3.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger4) {
+  alertTrigger4.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}if (alertTrigger5) {
+  alertTrigger5.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger6) {
+  alertTrigger6.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}if (alertTrigger7) {
+  alertTrigger7.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger8) {
+  alertTrigger8.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}if (alertTrigger9) {
+  alertTrigger9.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger10) {
+  alertTrigger10.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}if (alertTrigger11) {
+  alertTrigger11.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger12) {
+  alertTrigger12.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}if (alertTrigger13) {
+  alertTrigger13.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger14) {
+  alertTrigger14.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}if (alertTrigger15) {
+  alertTrigger15.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger16) {
+  alertTrigger16.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}
+</script>
+
+
+<!-- bootstrap js -->
+<script src="./Class_files/bootstrap.bundle.min.js.download" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+
+
+
+</body></html>

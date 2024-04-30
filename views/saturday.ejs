@@ -1,0 +1,155 @@
+<%- include("partials/timeTableFix") -%>
+
+
+<div class="head">
+  <h4>Saturday</h4>
+</div>
+
+<div id="liveAlertPlaceholder"></div>
+
+<% var i=1; %>
+<% for(let j=1; j < 11; j++){ %>
+  <% keyPeriod.forEach(function(ele){ %>
+    <% if(ele.day==day){%>
+      <% if(ele.period==j){%>
+        <% keyTiming.forEach(function(time){ %>
+          <% if(ele.period==time.period){%>
+        <div class="period" style="display: flex;">
+          <div style="float: left; width: 91%;">
+            <h5 style="position: relative; top: 13px;"><%= ele.subject %></h5>
+            <p class="period-para"><%= time.start %> - <%= time.end %></p>
+            <form action="/<%= ele.day %>" style="position: relative; bottom: 5px;" method="post">
+              <button type="submit" class="btn btn-outline-success" id="liveAlertBtn<%= i %>" style="font-weight: 600;" name="period" value="p-<%= ele.subject %>-<%= time.start %>-<%= time.end %>">Present</button>
+              <button type="submit" class="btn btn-outline-danger" id="liveAlertBtn<%= i+1 %>" style="font-weight: 600; position: relative; left: 5px;" name="period" value="a-<%= ele.subject %>-<%= time.start %>-<%= time.end %>">Absent</button>
+              <p><span id="display_message"></span></p>
+            </form>
+          </div>
+          <div style="float: right; position: relative; top: 4px;">
+            <p style="font-size: 0.9rem; position: relative; top: 7px; margin: 0;">Period</p>   
+            <button type="submit" class="add btn btn-light" style="font-size: 1.4rem; font-weight: 600; border-radius: 50%; height: 37px; width: 37px; position: relative; left: 1.4px;" name="periodNumber" title="Period"><p style="position: relative; bottom: 6px; right: 0.7px;"><%= ele.period %></p></button>
+          </div>
+        </div>
+<% } }); } } }); i+= 2;} i=1; %>
+
+<div class="new-class">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Select order day
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="/saturday">None</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li><a class="dropdown-item" href="/monday">Monday</a></li>
+      <li><a class="dropdown-item" href="/tuesday">Tuesday</a></li>
+      <li><a class="dropdown-item" href="/wednesday">Wednesday</a></li>
+      <li><a class="dropdown-item" href="/thursday">Thursday</a></li>
+      <li><a class="dropdown-item" href="/friday">Friday</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<script>
+  const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+  const appendAlert = (message, type) => {
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = [
+    `<figure class="notification_${type}">`,
+      `<div class="notification_body_${type}">`,
+        `<img src="images/${type}.png" title="Success" alt="Success" class="notification_icon_${type}"/>`,
+        `${message}`, 
+      '</div>',
+      `<div class="notification_progress_${type}"></div>`,
+    '</figure>',
+  ].join('')
+  alertPlaceholder.append(wrapper)
+}
+
+const alertTrigger1 = document.getElementById('liveAlertBtn1');
+const alertTrigger2 = document.getElementById('liveAlertBtn2');
+const alertTrigger3 = document.getElementById('liveAlertBtn3');
+const alertTrigger4 = document.getElementById('liveAlertBtn4');
+const alertTrigger5 = document.getElementById('liveAlertBtn5');
+const alertTrigger6 = document.getElementById('liveAlertBtn6');
+const alertTrigger7 = document.getElementById('liveAlertBtn7');
+const alertTrigger8 = document.getElementById('liveAlertBtn8');
+const alertTrigger9 = document.getElementById('liveAlertBtn9');
+const alertTrigger10 = document.getElementById('liveAlertBtn10');
+const alertTrigger11 = document.getElementById('liveAlertBtn11');
+const alertTrigger12 = document.getElementById('liveAlertBtn12');
+const alertTrigger13 = document.getElementById('liveAlertBtn13');
+const alertTrigger14 = document.getElementById('liveAlertBtn14');
+const alertTrigger15 = document.getElementById('liveAlertBtn15');
+const alertTrigger16 = document.getElementById('liveAlertBtn16');
+
+if (alertTrigger1) {
+  alertTrigger1.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger2) {
+  alertTrigger2.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}if (alertTrigger3) {
+  alertTrigger3.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger4) {
+  alertTrigger4.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}if (alertTrigger5) {
+  alertTrigger5.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger6) {
+  alertTrigger6.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}if (alertTrigger7) {
+  alertTrigger7.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger8) {
+  alertTrigger8.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}if (alertTrigger9) {
+  alertTrigger9.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger10) {
+  alertTrigger10.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}if (alertTrigger11) {
+  alertTrigger11.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger12) {
+  alertTrigger12.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}if (alertTrigger13) {
+  alertTrigger13.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger14) {
+  alertTrigger14.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}if (alertTrigger15) {
+  alertTrigger15.addEventListener('click', () => {
+    appendAlert('Successfully marked as present!', 'success')
+  });
+}if (alertTrigger16) {
+  alertTrigger16.addEventListener('click', () => {
+    appendAlert('Successfully marked as absent!', 'danger')
+  });
+}
+</script>
+
+
+<%- include("partials/footer") -%>
